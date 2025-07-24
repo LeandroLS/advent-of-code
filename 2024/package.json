@@ -5,6 +5,7 @@
   "scripts": {
     "start": "tsc"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
