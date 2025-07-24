@@ -1,4 +1,4 @@
-import { listOne, listTwo } from '../inputData';
+import { listOne, listTwo } from '../inputData.js';
 
 const distanceList: number[] = []
 
@@ -13,11 +13,7 @@ function getDistance(listOne: number[], listTwo: number[]): number {
   const listTwoMinValue: number = Math.min(...listTwo);
 
   if (listOneMinValue !== listTwoMinValue) {
-    if (listOneMinValue < listTwoMinValue) {
-      distance = listTwoMinValue - listOneMinValue;
-    } else {
-      distance = listOneMinValue - listTwoMinValue;
-    }
+    distance = Math.abs(listOneMinValue - listTwoMinValue);
   }
   removeMinValueFromList(listOne, listOneMinValue);
   removeMinValueFromList(listTwo, listTwoMinValue);

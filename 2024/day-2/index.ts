@@ -1,16 +1,6 @@
 import { reportsList } from "./inputData.js";
 
 let correctReport = 0;
-function getDiff(lastNumber: number, currentNumber: number): number {
-  let diff = 0;
-  if (lastNumber > currentNumber) {
-    diff = lastNumber - currentNumber;
-  }
-  if (lastNumber < currentNumber) {
-    diff = currentNumber - lastNumber;
-  }
-  return diff;
-}
 
 function isIncreasing(
   lastNumber: number,
@@ -43,7 +33,7 @@ function isReportNumbersSafe(reportNumbers: number[]): boolean {
     if (isNumbersIncreasing && isNumbersDecreasing) {
       return true;
     }
-    const diff = getDiff(reportNumbers[index - 1], num);
+    const diff = Math.abs(reportNumbers[index - 1] - num);
     if (diff > 3) {
       return true;
     }
