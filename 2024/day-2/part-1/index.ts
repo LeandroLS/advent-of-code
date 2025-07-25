@@ -1,6 +1,4 @@
-import { reportsList } from "./inputData.js";
-
-let correctReport = 0;
+import { reportsList } from "../inputData.js";
 
 function isIncreasing(
   lastNumber: number,
@@ -46,13 +44,10 @@ function isReportNumbersSafe(reportNumbers: number[]): boolean {
   return isSafeReport;
 }
 
-reportsList.forEach((report) => {
-  const numbers = report.split(" ").map(Number);
-  console.log(`Processing report: ${numbers}`);
-  const isSafe = isReportNumbersSafe(numbers);
-  if (isSafe) {
-    correctReport++;
-  }
-});
+function countSafeReports(reportsList: string[]): number {
+  return reportsList.map(report => report.split(" ").map(Number))
+    .filter(isReportNumbersSafe).length
+}
 
-console.log(`The number of correct reports is: ${correctReport}`);
+console.log(`The number of correct reports is: ${countSafeReports(reportsList)}`);
+
